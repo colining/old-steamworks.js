@@ -1,0 +1,39 @@
+{
+    "name": "colining-steamworks.js",
+    "version": "0.0.31",
+    "main": "index.js",
+    "types": "index.d.ts",
+    "napi": {
+        "name": "steamworksjs"
+    },
+    "files": [
+        "dist/*",
+        "index.js",
+        "*.d.ts",
+        "README.md"
+    ],
+    "license": "MIT",
+    "devDependencies": {
+        "@napi-rs/cli": "2.11.4",
+        "rimraf": "3.0.2",
+        "typescript": "4.8.3",
+        "electron": "20.1.3"
+    },
+    "dependencies": {
+        "@types/node": "*"
+    },
+    "engines": {
+        "node": ">= 14"
+    },
+    "scripts": {
+        "build": "node build --release && npm run types",
+        "build:debug": "node build",
+        "prune": "rimraf dist target client.d.ts",
+        "format": "cargo fmt",
+        "types": "tsc index.js --allowJs --declaration --emitDeclarationOnly"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/colining/steamworks.js"
+    }
+}
